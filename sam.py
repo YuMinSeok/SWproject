@@ -7,10 +7,10 @@ def application(environ, start_response):
     b = d.get('b', [''])[0]
     if '' not in [a, b]:
         a, b = int(a), int(b)
-    response_body = html % {'a':a, 'b':b}
-    start_response('200 OK', [
-        ('Content-Type', 'text/html'),
-        ('Content-Length', str(len(response_body)))
-    ])
+        sum = a+b
+        mul = a * b
+    response_body = html% { 'sum' : sum, 'mul' : mul}
+    start_response('200 OK', [('Content-Type', 'text/html'), ('Content-Length', str(len(response_body)))])
     return [response_body]
+
 
