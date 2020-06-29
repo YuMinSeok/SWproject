@@ -7,16 +7,17 @@ def application(environ, start_response):
     b = d.get('b', [''])[0]
     sum , mul = 0 , 0
     code = 'success'
-    if '' not in [a, b]:
+    try:
         a, b = int(a), int(b)
         sum = a + b
         mul = a * b
-    response_body = html % { 'sum' : sum, 'mul' : mul, 'code' : code}
+        response_body = html % { 'sum' : sum, 'mul' : mul, 'code' : code}
 
-    if '' in [a,b]:
+    except ValueError:
         code  = 'Error'
         response_body = html % { 'sum' : sum, 'mul' : mul, 'code' : code}
     start_response('200 OK', [('Content-Type', 'text/html'), ('Content-Length', str(len(response_body)))])
     return [response_body]
 
+~                            
 
