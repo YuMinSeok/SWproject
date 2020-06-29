@@ -6,9 +6,10 @@ html = """
             b = <input type="number" name="b">
         <input type="submit">
         </form>
-        Sum = %(sum)d
+        Sum = %(sum)d <br>
         Mul = %(mul)d
+        Code = %(code)s
     </body>
 </html>
 """
-
+~                                      
